@@ -54,6 +54,7 @@ export default {
   methods: {
     async loadRequests() {
       this.isLoading = true;
+
       try {
         await this.$store.dispatch('requests/fetchRequests');
       } catch (error) {
