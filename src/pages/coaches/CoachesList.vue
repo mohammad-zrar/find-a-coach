@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import CoachItem from '../../components/coaches/coachItem.vue';
+import CoachItem from './../../components/coaches/CoachItem.vue';
 
 export default {
   components: {
