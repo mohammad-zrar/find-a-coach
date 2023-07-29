@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import CoachDetail from './pages/choaches/CoachDetail.vue';
 import CoachList from './pages/choaches/CoachesList.vue';
@@ -8,7 +8,7 @@ import RequestReceived from './pages/requests/RequestsReceived.vue';
 import NotFound from './pages/NotFound.vue';
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: [
     { path: '/', redirect: '/coaches' },
     { path: '/coaches', component: CoachList },
