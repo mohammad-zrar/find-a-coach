@@ -37,7 +37,6 @@ export default {
   },
   computed: {
     isCoach() {
-      console.log(this.$store.getters['coaches/isCoach']);
       return this.$store.getters['coaches/isCoach'];
     },
     filteredCoaches() {
