@@ -6,18 +6,11 @@
     <base-card>
       <div class="controls">
         <base-button mode="outline">Refresh</base-button>
-        <base-button to="/register" link>Register as Coach</base-button>
+        <base-button v-if="!isCoach" to="/register" link>Register as Coach</base-button>
       </div>
       <ul v-if="hasCoaches">
-        <coach-item
-          v-for="coach in filteredCoaches"
-          :key="coach.id"
-          :id="coach.id"
-          :first-name="coach.firstName"
-          :last-name="coach.lastName"
-          :rate="coach.hourlyRate"
-          :areas="coach.areas"
-        ></coach-item>
+        <coach-item v-for="coach in filteredCoaches" :key="coach.id" :id="coach.id" :first-name="coach.firstName"
+          :last-name="coach.lastName" :rate="coach.hourlyRate" :areas="coach.areas"></coach-item>
       </ul>
       <h3 v-else>No coaches found.</h3>
     </base-card>
@@ -43,6 +36,10 @@ export default {
     };
   },
   computed: {
+    isCoach() {
+      console.log(this.$store.getters['coaches/isCoach']);
+      return this.$store.getters['coaches/isCoach'];
+    },
     filteredCoaches() {
       const coaches = this.$store.getters['coaches/coaches'];
 
