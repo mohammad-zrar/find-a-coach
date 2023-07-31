@@ -26,6 +26,7 @@ export default {
             return this.$store.getters['requests/requests'];
         },
         hasRequests() {
+
             return this.$store.getters['requests/hasRequests'];
         }
     }
