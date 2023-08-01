@@ -7,7 +7,7 @@
         <li v-if="isLoggedIn && isCoach">
           <router-link to="/requests">Requests</router-link>
         </li>
-        <li v-else>
+        <li v-if="!isLoggedIn">
           <router-link to="/auth">Login</router-link>
         </li>
         <li v-if="isLoggedIn">
