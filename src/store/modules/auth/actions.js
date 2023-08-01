@@ -9,7 +9,7 @@ export default {
   async signup(context, payload) {
     return context.dispatch('auth', {
       ...payload,
-      mode: 'logout',
+      mode: 'signup',
     });
   },
   async auth(context, payload) {
@@ -17,6 +17,7 @@ export default {
     let url =
       'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword';
     if (mode === 'signup') {
+      console.log('Pass');
       url = 'https://identitytoolkit.googleapis.com/v1/accounts:signUp';
     }
     const response = await fetch(`${url}?key=${process.env.VUE_APP_API_KEY}`, {

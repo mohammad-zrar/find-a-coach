@@ -4,7 +4,7 @@
       <h1><router-link to="/">Find a Coach</router-link></h1>
       <ul>
         <li><router-link to="/coaches">All Coaches</router-link></li>
-        <li v-if="isLoggedIn">
+        <li v-if="isLoggedIn && isCoach">
           <router-link to="/requests">Requests</router-link>
         </li>
         <li v-else>
@@ -23,6 +23,9 @@ export default {
   computed: {
     isLoggedIn() {
       return this.$store.getters.isAuthenticated;
+    },
+    isCoach() {
+      return this.$store.getters['coaches/isCoach'];
     },
   },
   methods: {
@@ -92,5 +95,16 @@ header ul {
 
 li {
   margin: 0 0.5rem;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 600px) {
+  nav h1 {
+    display: none;
+  }
+
+  li {
+    font-size: 0.8rem;
+  }
 }
 </style>
