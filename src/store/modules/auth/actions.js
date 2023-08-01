@@ -1,7 +1,6 @@
 export default {
   login() {},
   async signup(context, payload) {
-    console.log('Pass signup from action.js');
     const response = await fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.VUE_APP_API_KEY}`,
       {
@@ -17,7 +16,8 @@ export default {
     if (!response.ok) {
       console.log(responseData);
       const error = new Error(
-        responseData.message || 'Failded to authenticate',
+        responseData.message ||
+          'Failded to authenticate, check your login data.',
       );
       throw error;
     }
